@@ -1,9 +1,9 @@
 extends Node2D
 
-export(PackedScene) var ball_scene = preload("res://ball.tscn")
+export(PackedScene) var root_scene = preload("res://Level/root.tscn")
 
 
-export(float) var character_speed = 60.0
+export(float) var character_speed = 40.0
 var path = []
 
 var map
@@ -26,7 +26,7 @@ func _process(delta):
 	running_time += delta;
 	
 	if running_time >= update_time :
-		spawn_ball(character.position)
+		spawn_root(character.position)
 		running_time = 0.0
 	
 	move_along_path(walk_distance)
@@ -63,9 +63,7 @@ func setup_navserver():
 
 func move_along_path(distance):
 	var last_point = character.position
-	
-	
-	
+		
 	while path.size():
 		var distance_between_points = last_point.distance_to(path[0])
 		# The position to move to falls between two points.
@@ -99,7 +97,7 @@ func _draw():
 	for p in path:
 		draw_circle(p, 10, Color(1, 1, 1))
 
-func spawn_ball(position):
-	var instance = ball_scene.instance()
+func spawn_root(position):
+	var instance = root_scene.instance()
 	instance.global_position = position
 	add_child(instance)
