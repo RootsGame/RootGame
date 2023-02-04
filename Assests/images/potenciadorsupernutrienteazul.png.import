@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bowling_ball.png-0fe48f78a8537b41cee7fd03e5ee14fe.stex"
+path="res://.import/potenciadorsupernutrienteazul.png-4742376691c2b05b007928377fe60820.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bowling_ball.png"
-dest_files=[ "res://.import/bowling_ball.png-0fe48f78a8537b41cee7fd03e5ee14fe.stex" ]
+source_file="res://Assests/images/potenciadorsupernutrienteazul.png"
+dest_files=[ "res://.import/potenciadorsupernutrienteazul.png-4742376691c2b05b007928377fe60820.stex" ]
 
 [params]
 
