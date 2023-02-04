@@ -3,11 +3,12 @@ extends Node2D
 export(PackedScene) var root_scene = preload("res://Level/root.tscn")
 
 
-export(float) var character_speed = 40.0
+export(float) var character_speed = 10.0
 var path = []
+var moving = false
 
 var map
-var update_time : float = 1.0/4.0
+var update_time : float = 1.0/10.0
 var running_time : float = 0.0
 
 
@@ -18,6 +19,7 @@ func _ready():
 	# use call deferred to make sure the entire SceneTree Nodes are setup
 	# else yield on 'physics_frame' in a _ready() might get stuck
 	call_deferred("setup_navserver")
+	randomize()
 
 
 func _process(delta):
@@ -31,6 +33,10 @@ func _process(delta):
 	
 	move_along_path(walk_distance)
 	update()
+	
+	get_node("EndRoute/PathFollow2D").set_offset(randi())
+	if !moving :
+		_update_navigation_path(character.position, get_node("EndRoute/PathFollow2D").position)
 
 
 # The "click" event is a custom input action defined in
@@ -39,7 +45,7 @@ func _unhandled_input(event):
 	if not event.is_action_pressed("click"):
 		return
 	_update_navigation_path(character.position, get_local_mouse_position())
-
+		
 
 func setup_navserver():
 
@@ -65,6 +71,7 @@ func move_along_path(distance):
 	var last_point = character.position
 		
 	while path.size():
+		moving = true
 		var distance_between_points = last_point.distance_to(path[0])
 		# The position to move to falls between two points.
 		if distance <= distance_between_points:
@@ -76,6 +83,8 @@ func move_along_path(distance):
 		path.remove(0)
 	# The character reached the end of the path.
 	character.position = last_point
+	moving = false
+	
 	set_process(false)
 
 
