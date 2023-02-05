@@ -18,12 +18,11 @@ func _ready():
 
 
 func _on_SelectLevelButton_pressed():
-	get_tree().change_scene("res://LevelSelector.tscn")
+	get_tree().change_scene("res://level.tscn")
 
 
 func _on_ExitButton_pressed():
 	get_tree().quit()
 
-
-func _on_OptionsButton_pressed():
-	pass # Replace with function body.
+func _on_Options_pressed():
+	get_tree().change_scene("res://OptionsMenu.tscn")
