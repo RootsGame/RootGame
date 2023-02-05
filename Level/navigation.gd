@@ -18,23 +18,28 @@ var newRoot = 600
 var blue = preload("res://BluePowerUp.tscn")
 var yellow = preload("res://YellowPowerUp.tscn")
 var pink = preload("res://PinkPowerUp.tscn")
-var powerups = [blue, yellow, pink]
 
-var powerupsamount = 7
+onready var powerupsamount = 7
 
 onready var character = $Character
 onready var area = $PowerUpSpawn
 
 func _ready():
-	randomize()
-	var powerup = powerups[randi() % powerups.size()]
-	var object = powerup.instance()
-	var position = area.rect_position + Vector2(randf() * area.rect_size.x, randf() * area.rect_size.y)
-	object.position = position
+	spawn_powerups(powerupsamount)
 	# use call deferred to make sure the entire SceneTree Nodes are setup
 	# else yield on 'physics_frame' in a _ready() might get stuck
 	call_deferred("setup_navserver")
 	randomize()
+
+func spawn_powerups(num):
+	for i in range(num):
+		randomize()
+		var powerups = [blue, yellow, pink]
+		var powerup = powerups[randi()% powerups.size()]
+		var object = powerup.instance()
+		var position = area.rect_position + Vector2(randf() * area.rect_size.x, randf() * area.rect_size.y)
+		object.position = position
+		add_child(object)
 
 
 func _process(delta):
