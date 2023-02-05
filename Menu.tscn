@@ -31,7 +31,7 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="SelectLevelButton" type="Button" parent="TextureRect/VBoxContainer3"]
-margin_right = 597.0
+margin_right = 596.0
 margin_bottom = 144.0
 rect_clip_content = true
 size_flags_vertical = 0
@@ -41,7 +41,7 @@ icon_align = 1
 
 [node name="Options" type="Button" parent="TextureRect/VBoxContainer3"]
 margin_top = 148.0
-margin_right = 597.0
+margin_right = 596.0
 margin_bottom = 292.0
 rect_clip_content = true
 icon = ExtResource( 4 )
@@ -50,7 +50,7 @@ icon_align = 1
 
 [node name="ExitButton" type="Button" parent="TextureRect/VBoxContainer3"]
 margin_top = 296.0
-margin_right = 597.0
+margin_right = 596.0
 margin_bottom = 440.0
 rect_clip_content = true
 icon = ExtResource( 5 )
