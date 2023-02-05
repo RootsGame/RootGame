@@ -5,7 +5,7 @@ var growth = 0
 var roots = 0
 var powerups = 0
 var goals = 0
-var time = 45
+var time = 5
 
 onready var timer = get_node("TimeToAchieveGoals")
 
