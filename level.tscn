@@ -54,3 +54,9 @@ position = Vector2( 9, 695 )
 rotation = 0.00238396
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="PowerUpSpawn" type="ReferenceRect" parent="."]
+margin_left = 6.0
+margin_top = 264.0
+margin_right = 1282.0
+margin_bottom = 722.0
