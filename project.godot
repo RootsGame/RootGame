@@ -15,6 +15,11 @@ config/description="Game for Madrid GameJam"
 run/main_scene="res://Menu.tscn"
 boot_splash/image="res://Assests/images/potenciadorsupernutrienteazul.png"
 
+[autoload]
+
+MenuMusic="*res://MenuMusic.tscn"
+Global="*res://GLOBAL.gd"
+
 [display]
 
 window/size/width=1280
